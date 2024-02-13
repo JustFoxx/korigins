@@ -1,0 +1,43 @@
+[versions]
+vineflower = "1.9.3"
+minecraft = "1.20.2"
+fabricloader = "0.15.6"
+yarn = "1.20.2+build.4"
+fabricloom = "1.5-SNAPSHOT"
+spotless = "6.25.0"
+intellij = "1.17.1-SNAPSHOT"
+lombok = "8.4"
+palantir = "2.40.0"
+origins-fabric = "1.12.4"
+reach-entity-attributes = "2.4.0"
+apoli = "2.11.5"
+fabric-api = "0.91.6+1.20.2"
+night-config = "3.6.7"
+pehkui = "3.7.12"
+
+[libraries]
+vineflower-decompiler = { module = "org.vineflower:vineflower", version.ref = "vineflower" }
+minecraft-game = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabricloader" }
+yarn-mappings = { module = "net.fabricmc:yarn", version.ref = "yarn" }
+origins-fabric = { module = "com.github.apace100:origins-fabric", version.ref = "origins-fabric" }
+apoli = { module = "com.github.apace100:apoli", version.ref = "apoli" }
+reach-entity-attributes = { module = "com.jamieswhiteshirt:reach-entity-attributes", version.ref = "reach-entity-attributes" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
+night-config = { module = "com.electronwill.night-config:toml", version.ref = "night-config" }
+pehkui = { module = "com.github.virtuoel:pehkui", version.ref = "pehkui" }
+
+[bundles]
+vineflower = ["vineflower_decompiler"]
+minecraft = ["minecraft_game"]
+yarn = ["yarn_mappings"]
+fabric = ["fabric_loader", "fabric_api"]
+origins = ["origins_fabric", "apoli", "reach_entity_attributes"]
+night = ["night_config"]
+pehkui = ["pehkui"]
+
+[plugins]
+fabricloom = { id = "fabric-loom", version.ref = "fabricloom" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+intellij = { id = "org.jetbrains.intellij", version.ref = "intellij" }
+lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
