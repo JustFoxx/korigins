@@ -1,0 +1,25 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "Kittech's Origins",
+    "description": "Some of my origins",
+    "authors": ["kittech"],
+    "license": "LGPL-3.0",
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "~${minecraft_version}",
+        "java": ">=${java_version}",
+        "pehkui": ">=${pehkui_version}",
+        "origins": ">=${origins_version}"
+    },
+    "contact": {
+        "website": "https://github.com/justfoxx/ventur",
+        "issues": "https://github.com/justfoxx/ventur/issues",
+        "sources": "https://github.com/justfoxx/ventur"
+    },
+    "entrypoints": {
+        "main": ["io.github.justfoxx.korigins.Main"]
+    },
+    "mixins": []
+}

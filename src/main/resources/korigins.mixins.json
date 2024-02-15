@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "package": "io.github.justfoxx.korigins.mixins",
+    "compatibilityLevel": "JAVA_17",
+    "mixins": [
+        "LivingEntityMixin",
+        "OriginLayerAccessor",
+        "PowerAccessor",
+        "PowerHolderComponentImplMixin",
+        "ServerPlayerEntityTick"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

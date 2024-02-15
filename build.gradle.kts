@@ -50,6 +50,8 @@ tasks.processResources {
             "loader_version" to libs.versions.fabricloader.get(),
             "minecraft_version" to libs.versions.minecraft.get(),
             "java_version" to "$sourceCompatibility",
+            "pehkui_version" to libs.versions.pehkui.get(),
+            "origins_version" to libs.versions.origins.fabric.get()
     ))
 }
 
