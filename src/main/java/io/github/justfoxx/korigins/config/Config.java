@@ -2,11 +2,10 @@ package io.github.justfoxx.korigins.config;
 
 import com.electronwill.nightconfig.core.conversion.ObjectConverter;
 import com.electronwill.nightconfig.core.file.FileConfig;
+import java.util.function.Supplier;
 import lombok.val;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
-
-import java.util.function.Supplier;
 
 public final class Config {
     private final FileConfig config;

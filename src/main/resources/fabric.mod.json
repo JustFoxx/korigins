@@ -21,5 +21,5 @@
     "entrypoints": {
         "main": ["io.github.justfoxx.korigins.Main"]
     },
-    "mixins": []
+    "mixins": ["korigins.mixins.json"]
 }
