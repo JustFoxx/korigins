@@ -4,12 +4,13 @@ import io.github.justfoxx.korigins.origins.CustomOrigin;
 import net.fabricmc.api.ModInitializer;
 
 public final class Main implements ModInitializer {
+
     @Override
     public void onInitialize() {
-        GlobalUtils.logger.info("\uD83D\uDC31");
+        Vars.logger.info("\uD83D\uDC31");
         CustomOrigin.registerAll();
-        GlobalUtils.logger.info(
+        Vars.logger.info(
                 "Origins: {}",
-                CustomOrigin.origins.values().stream().map(CustomOrigin::getId).toList());
+                Vars.origins.values().stream().map(CustomOrigin::getId).toList());
     }
 }

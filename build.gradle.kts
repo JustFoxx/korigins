@@ -80,3 +80,7 @@ spotless {
         target("src/**/*.java")
     }
 }
+
+loom {
+    serverOnlyMinecraftJar()
+}

@@ -6,9 +6,13 @@ import io.github.apace100.origins.origin.Impact;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
 import io.github.apace100.origins.origin.OriginRegistry;
-import io.github.justfoxx.korigins.GlobalUtils;
+import io.github.justfoxx.korigins.Utils;
+import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.mixins.OriginLayerAccessor;
-import io.github.justfoxx.korigins.powers.CustomPower;
+import io.github.justfoxx.korigins.powers.PowerData;
+import io.github.justfoxx.korigins.powers.PowerKey;
+import java.util.HashMap;
+import java.util.List;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -16,37 +20,32 @@ import lombok.val;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
 @ToString
 @EqualsAndHashCode
 public abstract class CustomOrigin {
-    public static Map<Identifier, CustomOrigin> origins =
-            Map.ofEntries(Map.entry(GlobalUtils.id("ventur"), VenturOrigin.INSTANCE));
-
     public static void registerAll() {
-        for (val origin : origins.values()) {
+        for (val origin : Vars.origins.values()) {
             origin.register();
         }
     }
 
     private final Identifier id;
-    private final HashMap<Identifier, ?> powers;
+    private final HashMap<PowerKey<?>, ?> powers;
     private final Origin origin;
 
     protected CustomOrigin(
             Identifier id,
-            List<CustomPower.PowerData<?>> powers,
+            @NotNull List<PowerData<?>> powers,
             ItemStack visualItem,
             Impact impact,
             int order,
             int priority) {
         this.id = id;
-        this.powers = powers.stream().collect(HashMap::new, (m, p) -> m.put(p.getId(), p.getData()), HashMap::putAll);
+        this.powers =
+                powers.stream().collect(HashMap::new, (m, p) -> m.put(p.getPowerKey(), p.getData()), HashMap::putAll);
         this.origin = new Origin(id, visualItem, impact, order, priority);
     }
 
@@ -59,25 +58,28 @@ public abstract class CustomOrigin {
     }
 
     private void registerPowers() {
-        for (val id : powers.keySet()) {
-            this.origin.add(new PowerTypeReference<>(id));
+        for (val powerKey : powers.keySet()) {
+            this.origin.add(new PowerTypeReference<>(powerKey.id()));
         }
     }
 
     public final void register() {
+        if (this.isDisabled()) return;
         registerPowers();
         OriginDataLoadedCallback.EVENT.register(this::originDataLoaded);
     }
 
     public final OriginLayer getLayer() {
-        return GlobalUtils.getLayer();
+        return Utils.getLayer();
     }
 
     public final boolean isActive(PlayerEntity player) {
         return getLayer().getOrigins(player).contains(this.id);
     }
 
-    public final <T> T getPowerData(Identifier id) {
+    public final <T> T getPowerData(PowerKey<T> id) {
         return (T) powers.get(id);
     }
+
+    public abstract boolean isDisabled();
 }
