@@ -31,7 +31,7 @@ public final class Vars {
         converter = new ObjectConverter();
         container = FabricLoader.getInstance().getModContainer(Vars.MOD_NAME).get();
         config = new Config(Vars.MOD_NAME, container).load(converter, ConfigData::new);
-        origins = Map.ofEntries(Map.entry(Utils.id("ventur"), VenturOrigin.INSTANCE));
         powers = List.of(new ChangeSize());
+        origins = CustomOrigin.registerAll(Map.ofEntries(Map.entry(Utils.id("ventur"), VenturOrigin.INSTANCE)));
     }
 }

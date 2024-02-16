@@ -9,10 +9,11 @@ import io.github.justfoxx.korigins.Utils;
 import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.origins.CustomOrigin;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
-import lombok.val;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
@@ -35,11 +36,10 @@ public abstract class CustomPower<T> {
     }
 
     public final List<CustomOrigin> getOrigins(ServerPlayerEntity player) {
-        val origins = Utils.getPlayerOrigins(player);
-        return origins.stream()
-                .filter(Vars.origins::containsKey)
+        return Utils.getPlayerOrigins(player).stream()
                 .map(Vars.origins::get)
-                .toList();
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
     }
 
     public final boolean isActive(ServerPlayerEntity player) {

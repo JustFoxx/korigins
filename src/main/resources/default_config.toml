@@ -1,10 +1,13 @@
 [ventur]
 disabled = false
+# Minecraft item identifier
+visual_item = "minecraft:wither_rose"
+
+[ventur.change_size]
+disabled = false
 # 0 - Max float
 base_scale = 0.6
 # 0 - Max float
 reach_scale = 2.0
 # 0 - Max float
 motion_scale = 1.2
-# Minecraft item identifier
-visual_item = "minecraft:wither_rose"

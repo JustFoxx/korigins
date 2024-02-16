@@ -8,7 +8,6 @@ public final class Main implements ModInitializer {
     @Override
     public void onInitialize() {
         Vars.logger.info("\uD83D\uDC31");
-        CustomOrigin.registerAll();
         Vars.logger.info(
                 "Origins: {}",
                 Vars.origins.values().stream().map(CustomOrigin::getId).toList());

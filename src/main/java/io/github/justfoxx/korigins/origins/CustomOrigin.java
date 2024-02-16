@@ -6,13 +6,14 @@ import io.github.apace100.origins.origin.Impact;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
 import io.github.apace100.origins.origin.OriginRegistry;
+import io.github.justfoxx.korigins.IsDisabled;
 import io.github.justfoxx.korigins.Utils;
-import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.mixins.OriginLayerAccessor;
 import io.github.justfoxx.korigins.powers.PowerData;
 import io.github.justfoxx.korigins.powers.PowerKey;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -25,11 +26,9 @@ import org.jetbrains.annotations.NotNull;
 @Getter
 @ToString
 @EqualsAndHashCode
-public abstract class CustomOrigin {
-    public static void registerAll() {
-        for (val origin : Vars.origins.values()) {
-            origin.register();
-        }
+public abstract class CustomOrigin implements IsDisabled {
+    public static Map<Identifier, CustomOrigin> registerAll(Map<Identifier, CustomOrigin> origins) {
+        return IsDisabled.convertMapB(origins);
     }
 
     private final Identifier id;
@@ -63,10 +62,10 @@ public abstract class CustomOrigin {
         }
     }
 
-    public final void register() {
-        if (this.isDisabled()) return;
+    private CustomOrigin register() {
         registerPowers();
         OriginDataLoadedCallback.EVENT.register(this::originDataLoaded);
+        return this;
     }
 
     public final OriginLayer getLayer() {
@@ -80,6 +79,4 @@ public abstract class CustomOrigin {
     public final <T> T getPowerData(PowerKey<T> id) {
         return (T) powers.get(id);
     }
-
-    public abstract boolean isDisabled();
 }

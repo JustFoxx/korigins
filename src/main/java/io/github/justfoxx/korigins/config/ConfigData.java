@@ -27,6 +27,23 @@ public final class ConfigData {
         @Path("disabled")
         private boolean disabled;
 
+        @Path("change_size")
+        private ChangeSize changeSize;
+
+        @Path("visual_item")
+        @Conversion(ItemStringConversion.class)
+        private Item visualItem;
+    }
+
+    @Getter
+    @ToString
+    @EqualsAndHashCode
+    public static final class ChangeSize {
+        private ChangeSize() {}
+
+        @Path("disabled")
+        private boolean disabled;
+
         @Path("base_scale")
         @SpecDoubleInRange(min = 0.0, max = Float.MAX_VALUE)
         private double baseScale;
@@ -38,10 +55,6 @@ public final class ConfigData {
         @Path("motion_scale")
         @SpecDoubleInRange(min = 0.0, max = Float.MAX_VALUE)
         private double motionScale;
-
-        @Path("visual_item")
-        @Conversion(ItemStringConversion.class)
-        private Item visualItem;
     }
 
     static class ItemStringConversion implements Converter<Item, String> {
