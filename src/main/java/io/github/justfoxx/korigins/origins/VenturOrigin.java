@@ -7,11 +7,12 @@ import io.github.justfoxx.korigins.Utils;
 import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.powers.ChangeSize;
 import io.github.justfoxx.korigins.powers.PowerData;
-import java.util.List;
 import lombok.val;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 public final class VenturOrigin extends CustomOrigin {
     public static final VenturOrigin INSTANCE;
@@ -20,7 +21,7 @@ public final class VenturOrigin extends CustomOrigin {
         val config = Vars.config.getVentur();
         val item = Registries.ITEM.get(Utils.id("ventur")).getDefaultStack();
         val id = Utils.id("ventur");
-        var power = List.of(
+        val power = List.of(
                 PowerData.nonCustom(Origins.identifier("climbing")),
                 PowerData.custom(
                         ChangeSize.key,
@@ -29,7 +30,6 @@ public final class VenturOrigin extends CustomOrigin {
                                 (float) config.getChangeSize().getReachScale(),
                                 (float) config.getChangeSize().getMotionScale()),
                         () -> config.getChangeSize().isDisabled()));
-        power = IsDisabled.convertList(power);
 
         INSTANCE = new VenturOrigin(id, power, item, Impact.NONE, 0, 0);
     }

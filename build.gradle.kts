@@ -58,7 +58,7 @@ tasks.processResources {
 
 tasks.jar {
     from("LICENSE") {
-        rename { "${it}_$archivesBaseName"}
+        rename { "${it}_$archivesBaseName" }
     }
 }
 
@@ -77,6 +77,8 @@ val String.configKey: String
 spotless {
     java {
         palantirJavaFormat(libs.versions.palantir.get())
+                .formatJavadoc(true)
+        formatAnnotations()
         target("src/**/*.java")
     }
 }

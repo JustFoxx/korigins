@@ -7,14 +7,15 @@ import io.github.justfoxx.korigins.origins.CustomOrigin;
 import io.github.justfoxx.korigins.origins.VenturOrigin;
 import io.github.justfoxx.korigins.powers.ChangeSize;
 import io.github.justfoxx.korigins.powers.CustomPower;
-import java.util.List;
-import java.util.Map;
 import lombok.experimental.UtilityClass;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.Map;
 
 @UtilityClass
 public final class Vars {

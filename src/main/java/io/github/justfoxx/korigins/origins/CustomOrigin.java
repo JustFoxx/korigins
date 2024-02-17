@@ -11,9 +11,6 @@ import io.github.justfoxx.korigins.Utils;
 import io.github.justfoxx.korigins.mixins.OriginLayerAccessor;
 import io.github.justfoxx.korigins.powers.PowerData;
 import io.github.justfoxx.korigins.powers.PowerKey;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -22,6 +19,10 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @ToString
@@ -44,7 +45,7 @@ public abstract class CustomOrigin implements IsDisabled {
             int priority) {
         this.id = id;
         this.powers =
-                powers.stream().collect(HashMap::new, (m, p) -> m.put(p.getPowerKey(), p.getData()), HashMap::putAll);
+                IsDisabled.convertList(powers).stream().collect(HashMap::new, (m, p) -> m.put(p.getPowerKey(), p.getData()), HashMap::putAll);
         this.origin = new Origin(id, visualItem, impact, order, priority);
     }
 

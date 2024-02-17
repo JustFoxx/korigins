@@ -1,10 +1,11 @@
 package io.github.justfoxx.korigins;
 
+import lombok.val;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import lombok.val;
 
 public interface IsDisabled {
     boolean isDisabled();

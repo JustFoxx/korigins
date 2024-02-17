@@ -8,14 +8,15 @@ import io.github.apace100.apoli.power.PowerTypeRegistry;
 import io.github.justfoxx.korigins.Utils;
 import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.origins.CustomOrigin;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Getter
 @ToString
