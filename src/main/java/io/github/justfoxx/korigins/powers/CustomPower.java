@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2024 kittech
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ */
+
 package io.github.justfoxx.korigins.powers;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
@@ -40,6 +55,7 @@ public abstract class CustomPower<T> {
         return Utils.getPlayerOrigins(player).stream()
                 .map(Vars.origins::get)
                 .filter(Objects::nonNull)
+                .filter(origin -> origin.getPowers().containsKey(getKey()))
                 .collect(Collectors.toList());
     }
 

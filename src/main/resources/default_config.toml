@@ -2,6 +2,7 @@
 disabled = false
 # Minecraft item identifier
 visual_item = "minecraft:wither_rose"
+impact = 1
 
 [ventur.change_size]
 disabled = false
