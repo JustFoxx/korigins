@@ -1,6 +1,5 @@
 package io.github.justfoxx.korigins.mixins;
 
-import io.github.justfoxx.korigins.Vars;
 import lombok.val;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,5 @@
 package io.github.justfoxx.korigins.powers;
 
-import io.github.justfoxx.korigins.IsDisabled;
 import lombok.Data;
 import net.minecraft.util.Identifier;
 

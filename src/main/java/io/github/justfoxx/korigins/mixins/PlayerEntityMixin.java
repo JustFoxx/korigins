@@ -16,7 +16,6 @@
 package io.github.justfoxx.korigins.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.powers.OnSound;
 import lombok.val;
 import net.minecraft.entity.EntityType;

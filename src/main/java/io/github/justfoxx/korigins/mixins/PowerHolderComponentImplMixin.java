@@ -3,7 +3,6 @@ package io.github.justfoxx.korigins.mixins;
 import io.github.apace100.apoli.component.PowerHolderComponentImpl;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
-import io.github.justfoxx.korigins.Vars;
 import lombok.val;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;

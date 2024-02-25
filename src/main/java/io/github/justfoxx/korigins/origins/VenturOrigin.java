@@ -24,8 +24,6 @@ package io.github.justfoxx.korigins.origins;
 
 import io.github.apace100.origins.Origins;
 import io.github.apace100.origins.origin.Impact;
-import io.github.justfoxx.korigins.Utils;
-import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.powers.ChangeSize;
 import io.github.justfoxx.korigins.powers.PowerData;
 import lombok.val;

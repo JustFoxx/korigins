@@ -20,8 +20,6 @@ import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.PowerTypeReference;
 import io.github.apace100.apoli.power.PowerTypeRegistry;
-import io.github.justfoxx.korigins.Utils;
-import io.github.justfoxx.korigins.Vars;
 import io.github.justfoxx.korigins.origins.CustomOrigin;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -19,11 +19,10 @@
         "sources": "https://github.com/justfoxx/ventur"
     },
     "entrypoints": {
-        "main": ["io.github.justfoxx.korigins.Main",
-            {
-                "adapter": "kotlin",
-                "value": "io.github.justfoxx.korigins.MainKt::main"
-            }]
+        "main": [{
+            "adapter": "kotlin",
+            "value": "io.github.justfoxx.korigins.MainKt::main"
+        }]
     },
     "mixins": ["korigins.mixins.json"]
 }

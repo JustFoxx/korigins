@@ -28,8 +28,6 @@ import io.github.apace100.origins.origin.Impact;
 import io.github.apace100.origins.origin.Origin;
 import io.github.apace100.origins.origin.OriginLayer;
 import io.github.apace100.origins.origin.OriginRegistry;
-import io.github.justfoxx.korigins.IsDisabled;
-import io.github.justfoxx.korigins.Utils;
 import io.github.justfoxx.korigins.mixins.OriginLayerAccessor;
 import io.github.justfoxx.korigins.powers.PowerData;
 import io.github.justfoxx.korigins.powers.PowerKey;

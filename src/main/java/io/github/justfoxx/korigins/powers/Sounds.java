@@ -15,7 +15,6 @@
 
 package io.github.justfoxx.korigins.powers;
 
-import io.github.justfoxx.korigins.Utils;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;

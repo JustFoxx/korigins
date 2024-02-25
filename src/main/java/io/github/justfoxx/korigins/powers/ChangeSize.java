@@ -2,7 +2,6 @@ package io.github.justfoxx.korigins.powers;
 
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
-import io.github.justfoxx.korigins.Utils;
 import lombok.val;
 import net.minecraft.server.network.ServerPlayerEntity;
 import virtuoel.pehkui.api.ScaleTypes;
