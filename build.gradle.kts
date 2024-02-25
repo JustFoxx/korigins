@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.intellij)
     alias(libs.plugins.lombok)
-    alias(libs.plugins.spotless)
     alias(libs.plugins.fabricloom)
 }
 
@@ -74,14 +73,6 @@ intellij {
 val String.configKey: String
     get() = project.properties[this].toString()
 
-spotless {
-    java {
-        palantirJavaFormat(libs.versions.palantir.get())
-                .formatJavadoc(true)
-        formatAnnotations()
-        target("src/**/*.java")
-    }
-}
 
 loom {
     serverOnlyMinecraftJar()
