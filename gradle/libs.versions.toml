@@ -5,6 +5,7 @@ fabricloader = "0.15.6"
 yarn = "1.20.2+build.4"
 fabricloom = "1.5-SNAPSHOT"
 intellij = "1.17.1-SNAPSHOT"
+kotlin-jetbrains = "1.9.22"
 lombok = "8.4"
 origins-fabric = "1.12.4"
 reach-entity-attributes = "2.4.0"
@@ -12,6 +13,8 @@ apoli = "2.11.5"
 fabric-api = "0.91.6+1.20.2"
 night-config = "3.6.7"
 pehkui = "3.7.12"
+ktfmt = "0.17.0"
+kotlin-fabric = "1.10.18+kotlin.1.9.22"
 
 [libraries]
 vineflower-decompiler = { module = "org.vineflower:vineflower", version.ref = "vineflower" }
@@ -24,6 +27,7 @@ reach-entity-attributes = { module = "com.jamieswhiteshirt:reach-entity-attribut
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 night-config = { module = "com.electronwill.night-config:toml", version.ref = "night-config" }
 pehkui = { module = "com.github.virtuoel:pehkui", version.ref = "pehkui" }
+kotlin-fabric = { module = "net.fabricmc:fabric-language-kotlin", version.ref = "kotlin-fabric" }
 
 [bundles]
 vineflower = ["vineflower_decompiler"]
@@ -33,8 +37,11 @@ fabric = ["fabric_loader", "fabric_api"]
 origins = ["origins_fabric", "apoli", "reach_entity_attributes"]
 night = ["night_config"]
 pehkui = ["pehkui"]
+kotlin = ["kotlin_fabric"]
 
 [plugins]
 fabricloom = { id = "fabric-loom", version.ref = "fabricloom" }
 intellij = { id = "org.jetbrains.intellij", version.ref = "intellij" }
 lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin-jetbrains" }
+ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt" }
