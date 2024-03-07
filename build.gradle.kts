@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     alias(libs.plugins.intellij)
@@ -45,13 +46,14 @@ version = "${"mod_version".configKey}+${libs.versions.minecraft.get()}"
 tasks {
     processResources {
         expand(mapOf(
-                "version" to version,
-                "mod_id" to "mod_id".configKey,
-                "loader_version" to libs.versions.fabricloader.get(),
-                "minecraft_version" to libs.versions.minecraft.get(),
-                "java_version" to "$sourceCompatibility",
-                "pehkui_version" to libs.versions.pehkui.get(),
-                "origins_version" to libs.versions.origins.fabric.get()
+            "version" to version,
+            "mod_id" to "mod_id".configKey,
+            "java_version" to "$sourceCompatibility",
+            "loader_version" to libs.versions.fabricloader.get(),
+            "minecraft_version" to libs.versions.minecraft.get(),
+            "pehkui_version" to libs.versions.pehkui.get(),
+            "origins_version" to libs.versions.origins.fabric.get(),
+            "kotlin_fabric_version" to libs.versions.kotlin.fabric.get()
         ))
     }
     jar {
@@ -62,6 +64,23 @@ tasks {
 
     compileJava {
         options.release = 17
+    }
+
+    withType<KotlinCompile>().configureEach {
+        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.freeCompilerArgs += listOf(
+            "-Xlambdas=indy",
+            "-Xassertions=jvm",
+            "-Xbackend-threads=8",
+            "-Xenhance-type-parameter-types-to-def-not-null",
+            "-Xjvm-default=all",
+            "-Xsam-conversions=indy",
+            "-Xstring-concat=indy-with-constants",
+            "-Xtype-enhancement-improvements-strict-mode",
+            "-Xcontext-receivers",
+            "-Xklib-enable-signature-clash-checks",
+            "-Xextended-compiler-checks",
+        )
     }
 }
 

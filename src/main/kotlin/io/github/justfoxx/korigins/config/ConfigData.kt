@@ -1,3 +1,5 @@
+@file:JvmName("ConfigData")
+
 package io.github.justfoxx.korigins.config
 
 import com.electronwill.nightconfig.core.conversion.Conversion
@@ -11,29 +13,21 @@ import net.minecraft.registry.Registries
 import net.minecraft.util.Identifier
 
 class ConfigData {
-    @Path("ventur")
-    private val ventur = VenturConfig()
+    @Path("ventur") private val ventur = VenturConfig()
 }
 
 class VenturConfig internal constructor() {
-    @Path("disabled")
-    val disabled = false
+    @Path("disabled") val disabled = false
 
-    @Path("change_size")
-    val changeSize = ChangeSize()
+    @Path("change_size") val changeSize = ChangeSize()
 
-    @Path("impact")
-    @Conversion(ImpactToInteger::class)
-    val impact = Impact.NONE
+    @Path("impact") @Conversion(ImpactToInteger::class) val impact = Impact.NONE
 
-    @Path("visual_item")
-    @Conversion(ItemToString::class)
-    val visualItem = Items.AIR
+    @Path("visual_item") @Conversion(ItemToString::class) val visualItem = Items.AIR
 }
 
 class ChangeSize internal constructor() {
-    @Path("disabled")
-    val disabled = false
+    @Path("disabled") val disabled = false
 
     @Path("base_scale")
     @SpecDoubleInRange(min = 0.0, max = Float.MAX_VALUE.toDouble())
@@ -48,8 +42,8 @@ class ChangeSize internal constructor() {
     val motionScale = 0.0
 }
 
-private class ItemToString : Converter<Item, String?> {
-    override fun convertToField(value: String?): Item {
+private class ItemToString : Converter<Item, String> {
+    override fun convertToField(value: String): Item {
         return Registries.ITEM[Identifier.tryParse(value)]
     }
 
@@ -58,9 +52,9 @@ private class ItemToString : Converter<Item, String?> {
     }
 }
 
-private class ImpactToInteger : Converter<Impact, Int?> {
-    override fun convertToField(value: Int?): Impact {
-        return Impact.getByValue(value!!)
+private class ImpactToInteger : Converter<Impact, Int> {
+    override fun convertToField(value: Int): Impact {
+        return Impact.getByValue(value)
     }
 
     override fun convertFromField(value: Impact): Int {

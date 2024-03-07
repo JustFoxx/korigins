@@ -11,7 +11,8 @@
         "minecraft": "~${minecraft_version}",
         "java": ">=${java_version}",
         "pehkui": ">=${pehkui_version}",
-        "origins": ">=${origins_version}"
+        "origins": ">=${origins_version}",
+        "fabric-language-kotlin": ">=${kotlin_fabric_version}"
     },
     "contact": {
         "website": "https://github.com/justfoxx/ventur",
@@ -21,8 +22,8 @@
     "entrypoints": {
         "main": [{
             "adapter": "kotlin",
-            "value": "io.github.justfoxx.korigins.MainKt::main"
+            "value": "io.github.justfoxx.korigins.Main::init"
         }]
     },
-    "mixins": ["korigins.mixins.json"]
+    "mixins": []
 }
