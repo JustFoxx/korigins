@@ -5,7 +5,7 @@ fabricloader = "0.15.6"
 yarn = "1.20.2+build.4"
 fabricloom = "1.5-SNAPSHOT"
 intellij = "1.17.1-SNAPSHOT"
-kotlin-jetbrains = "1.9.22"
+kotlin-jetbrains = "1.9.23"
 lombok = "8.4"
 origins-fabric = "1.12.4"
 reach-entity-attributes = "2.4.0"
@@ -14,7 +14,7 @@ fabric-api = "0.91.6+1.20.2"
 night-config = "3.6.7"
 pehkui = "3.7.12"
 ktfmt = "0.17.0"
-kotlin-fabric = "1.10.18+kotlin.1.9.22"
+kotlin-fabric = "1.10.18+kotlin.1.9.23"
 
 [libraries]
 vineflower-decompiler = { module = "org.vineflower:vineflower", version.ref = "vineflower" }
